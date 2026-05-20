@@ -1,13 +1,16 @@
 from typing import TypeVar
 
 import numpy
-from sklearn.base import BaseEstimator  # type: ignore
-from sklearn.base import TransformerMixin  # type: ignore
-from sklearn.utils.validation import check_array  # type: ignore
-from sklearn.utils.validation import check_is_fitted  # type: ignore
+from sklearn.base import (
+    BaseEstimator,  # type: ignore
+    TransformerMixin,  # type: ignore
+)
+from sklearn.utils.validation import (
+    check_array,  # type: ignore
+    check_is_fitted,  # type: ignore
+)
 
-from fracdiff.fdiff import fdiff
-from fracdiff.fdiff import fdiff_coef
+from fracdiff.fdiff import fdiff, fdiff_coef
 
 T = TypeVar("T", bound="Fracdiff")
 
@@ -29,7 +32,7 @@ class Fracdiff(TransformerMixin, BaseEstimator):
             Every term in the output is evaluated using `window` observations.
             In other words, a fracdiff operator, which is a polynominal of a backshift
             operator, is truncated up to the `window`-th term.
-            The beginning window\_ - 1 elements in output are filled with `numpy.nan`.
+            The beginning `window - 1` elements in output are filled with `numpy.nan`.
         "expanding" (not available) :
             Expanding window method.
             Every term in fracdiff time-series is evaluated using at least `window`
