@@ -1,12 +1,15 @@
 from concurrent.futures import ProcessPoolExecutor
-from typing import Optional
-from typing import TypeVar
+from typing import Optional, TypeVar
 
 import numpy as np
-from sklearn.base import BaseEstimator  # type: ignore
-from sklearn.base import TransformerMixin  # type: ignore
-from sklearn.utils.validation import check_array  # type: ignore
-from sklearn.utils.validation import check_is_fitted  # type: ignore
+from sklearn.base import (
+    BaseEstimator,  # type: ignore
+    TransformerMixin,  # type: ignore
+)
+from sklearn.utils.validation import (
+    check_array,  # type: ignore
+    check_is_fitted,  # type: ignore
+)
 
 from fracdiff.fdiff import fdiff
 
